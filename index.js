@@ -103,6 +103,9 @@ const path = require('path');
 
 const http = require('http');
 
+// const fs = require('fs');
+const index = fs.readFileSync('index.html');
+
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
 
@@ -112,9 +115,7 @@ const server = http.createServer((req, res) => {
         res.write('</body></html>');
     }
     else{
-        res.write('<html><head><title>node js class</title></head><body>');
-        res.write('<h1>Hello World !</h1>');
-        res.write('</body></html>');
+        res.write(index);
         
     }
     res.end();
